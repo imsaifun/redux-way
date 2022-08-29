@@ -8,16 +8,10 @@ import Grid from "../components/videos/grid";
 export default function Home() {
     return (
         <>
-
-
             <Header />
-
             <Grid />
             <Pagination />
             <Footer />
-
-
-
         </>
     )
 }
