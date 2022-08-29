@@ -14,10 +14,12 @@ const VideoDetails = () => {
     const dispatch = useDispatch();
     const router = useRouter();
     const { id } = router.query;
-    // console.log(id);
     useEffect(() => {
         dispatch(fetchVideo(id))
-    }, [dispatch, id])
+    }, [id, dispatch])
+
+
+    const { link, title, tags } = video || {};
 
 
     let content = null
@@ -26,10 +28,11 @@ const VideoDetails = () => {
     if (!isLoading && !isError && !video?.id) content = <div className="col-span-12">No video found</div>
     if (!isLoading && !isError && video?.id) content = <div className="grid grid-cols-3 gap-2 lg:gap-8">
         <div className="col-span-full w-full space-y-8 lg:col-span-2">
-            <VideoPlayer />
-            <VideoDescription />
+            <VideoPlayer link={link} title={title} />
+
+            <VideoDescription video={video} />
         </div>
-        <RelatedVideoList />
+        <RelatedVideoList currentid={id} tags={tags} />
     </div>
 
 
