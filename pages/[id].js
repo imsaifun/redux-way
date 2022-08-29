@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
 
-const Video = () => {
+const VideoDetails = () => {
     return (
         <>
             <Header />
@@ -77,4 +77,4 @@ const Video = () => {
     );
 };
 
-export default Video;
+export default VideoDetails;
