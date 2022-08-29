@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchVideos } from '../../redux/videos/videos';
+import { fetchVideos } from '../../redux/features/videos/videos';
 import Loading from '../elements/Loading';
 import VideoItem from './VideoItem';
 const Grid = () => {
