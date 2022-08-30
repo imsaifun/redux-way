@@ -15,7 +15,8 @@ const VideoDetails = () => {
     const router = useRouter();
     const { id } = router.query;
     useEffect(() => {
-        dispatch(fetchVideo(id))
+        if(!id)(<Loading/>)
+        else(dispatch(fetchVideo(id)))
     }, [id, dispatch])
 
 
