@@ -1,20 +1,20 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Loading from "../components/elements/Loading";
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
-import VideoPlayer from '../components/videos/VideoPlayer';
 import RelatedVideos from '../components/videos/RelatedVideos';
-import { fetchVideo } from '../redux/features/video/video';
 import VideoDescription from '../components/videos/VideoDescription';
-import Loading from "../components/elements/Loading"
-import RelatedVideoList from '../components/videos/RelatedVideoList';
+import VideoPlayer from '../components/videos/VideoPlayer';
+import { fetchVideo } from '../redux/features/video/video';
 
 const VideoDetails = () => {
     const { video, isLoading, isError, error } = useSelector((state) => state.video)
     const dispatch = useDispatch();
     const router = useRouter();
     const { id } = router.query;
+    console.log(id);
     useEffect(() => {
         if(!id)(<Loading/>)
         else(dispatch(fetchVideo(id)))
