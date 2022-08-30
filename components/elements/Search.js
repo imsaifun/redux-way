@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searched } from "../../redux/features/filter/filter";
@@ -8,9 +9,12 @@ const Search = () => {
 
     const [input, setInput] = useState(search);
 
+    const router = useRouter()
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(searched(input));
+        router.replace("/")
     };
     return (
         <>
