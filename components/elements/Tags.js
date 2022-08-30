@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTags } from "../../redux/features/tags/tags";
+import { resetFilter } from '../../redux/features/filter/filter';
 import Tag from './Tag';
 
 const Tags = () => {
@@ -14,6 +15,11 @@ const Tags = () => {
 
     }, [dispatch])
 
+    const handleReset = () => {
+        dispatch(resetFilter());
+
+    };
+
     return (
         <>
 
@@ -23,6 +29,8 @@ const Tags = () => {
 
                 </div>
             </section> : null}
+
+            <button onClick={handleReset}>Reset</button>
 
 
         </>
