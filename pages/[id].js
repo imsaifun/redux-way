@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
 import VideoPlayer from '../components/videos/VideoPlayer';
-import RelatedVideoList from '../components/videos/RelatedVideoList';
+import RelatedVideos from '../components/videos/RelatedVideos';
 import { fetchVideo } from '../redux/features/video/video';
 import VideoDescription from '../components/videos/VideoDescription';
 import Loading from "../components/elements/Loading"
+import RelatedVideoList from '../components/videos/RelatedVideoList';
 
 const VideoDetails = () => {
     const { video, isLoading, isError, error } = useSelector((state) => state.video)
@@ -33,7 +34,7 @@ const VideoDetails = () => {
 
             <VideoDescription video={video} />
         </div>
-        <RelatedVideoList id={id} tags={tags} />
+        <RelatedVideos id={id} tags={tags} />
     </div>
 
 
